@@ -44,7 +44,7 @@ npm install n8n-nodes-safeagent
 
 ## How it works
 
-State machine: PENDING -> COMMITTED | SKIP
+Claim state: PENDING -> COMMITTED. The node's `SKIP` output means a repeated claim was blocked; it is not a stored claim state.
 
 Before any irreversible action - a Stripe charge, an outbound email, a trade, a webhook handler - the node claims an (Agent ID, Action Type, Scope) triple against SafeAgent's hosted API:
 
