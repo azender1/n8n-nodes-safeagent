@@ -1,0 +1,58 @@
+{
+  "name": "n8n-nodes-safeagent",
+  "version": "0.2.4",
+  "description": "n8n community node - SafeAgent execution guard (claim-before-execute idempotency pattern)",
+  "keywords": [
+    "n8n-community-node-package",
+    "safeagent",
+    "idempotency",
+    "execution-guard",
+    "ai-agent",
+    "duplicate-suppression",
+    "duplicate-prevention",
+    "webhook-idempotency",
+    "agent-retry",
+    "claim-before-execute",
+    "workflow-guard"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/azender1/n8n-nodes-safeagent",
+  "author": {
+    "name": "Anthony Zender",
+    "email": "azender1@yahoo.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azender1/n8n-nodes-safeagent.git"
+  },
+  "main": "dist/nodes/SafeAgent/SafeAgent.node.js",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "tsc --watch",
+    "format": "prettier nodes --write",
+    "lint": "n8n-node lint",
+    "lintfix": "n8n-node lint --fix",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "nodes": [
+      "dist/nodes/SafeAgent/SafeAgent.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@n8n/node-cli": "^0.23.0",
+    "eslint": "9.39.4",
+    "@types/node": "^18.16.0",
+    "n8n-workflow": "*",
+    "typescript": "^5.1.0"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}
