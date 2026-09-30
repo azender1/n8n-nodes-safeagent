@@ -72,6 +72,8 @@ Calls `POST /settle/{request_id}` to mark a previously claimed request as commit
 Build a workflow with three nodes:
 
 [Manual Trigger] -> [SafeAgent Guard (Claim)] -> PROCEED -> [your action] -> [SafeAgent Guard (Settle)]
+
+Preserve both `request_id` and `settlement_token` from Claim across the action node. Settle requires both; the settlement token is sent as `x-safeagent-settlement-token`.
 -> SKIP -> [No Operation]
 
 1. Set Agent ID to a fixed value, e.g. my-agent.
@@ -101,7 +103,7 @@ Result - arbitrary JSON to store against this claim once settled
 ## Output fields
 
 Claim -> PROCEED:
-{ "status": "PROCEED", "request_id": "...", "test": true, "calls_remaining": 9 }
+{ "status": "PROCEED", "request_id": "...", "settlement_token": "...", "test": true, "calls_remaining": 9 }
 
 Claim -> SKIP:
 { "status": "SKIP", "request_id": "...", "test": true, "calls_remaining": 8, "existing": {} }
